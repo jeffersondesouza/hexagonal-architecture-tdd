@@ -28,7 +28,12 @@ test("must test API connection", async () => {
   };
 
   const calculateInvoice = new CalculateInvoice(transactionDao, currencyGatway);
-  const total = await calculateInvoice.execute("1234", 11, 2022);
+  const total = await calculateInvoice.execute(
+    "http://localhost:3001",
+    "1234",
+    11,
+    2022
+  );
 
   expect(total).toEqual(2100);
 });

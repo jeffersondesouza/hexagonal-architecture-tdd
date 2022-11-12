@@ -1,5 +1,6 @@
 export default interface CurrencyGatway {
   getCurrencies(
+    baseUrl: string,
     month: number,
     year: number
   ): Promise<{

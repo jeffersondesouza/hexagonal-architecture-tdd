@@ -8,13 +8,13 @@ export default class CalculateInvoice {
     readonly currencyGateway: CurrencyGatway
   ) {}
 
-  async execute(cardNumber: string, month: number, year: number) {
+  async execute(baseUrl:string, cardNumber: string, month: number, year: number) {
     const transactions = await this.transactionDao.getTransactions(
       cardNumber,
       month,
       year
     );
-    const currencies = await this.currencyGateway.getCurrencies(month, year);
+    const currencies = await this.currencyGateway.getCurrencies(baseUrl, month, year);
 
     const invoice = new Invoice(transactions, currencies);
 
