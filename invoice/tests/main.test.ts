@@ -5,5 +5,6 @@ test("must test API connection", async () => {
     "http://localhost:3000/cards/1234/invoices/11/2022"
   );
   const output = response.data;
+  
   expect(output.total).toEqual(1050);
 });
