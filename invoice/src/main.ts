@@ -3,6 +3,7 @@ import CalculateInvoice from "./CalculateInvoice";
 import TransactionDAODatabase from "./TransactionDAODatabase";
 import CurrencyGatwayHttp from "./CurrencyGatwayHttp";
 import AxiosAdapter from "./AxiosAdapter";
+import PostgresConnection from "./PostgresConnection";
 
 const app = express();
 
@@ -11,7 +12,9 @@ app.get("/cards/:cardNumber/invoices/:month/:year", async function (req, res) {
 
   const baseUrl = "http://localhost:3001";
   const httpClient = new AxiosAdapter();
-  const transactionDAODatabase = new TransactionDAODatabase();
+
+  const postgresConnection = new PostgresConnection();
+  const transactionDAODatabase = new TransactionDAODatabase(postgresConnection);
   const currencyGatwayHttp = new CurrencyGatwayHttp(httpClient);
 
   const calculateInvoice = new CalculateInvoice(

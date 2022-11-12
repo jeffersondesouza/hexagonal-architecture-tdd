@@ -1,7 +1,7 @@
 import pgp from "pg-promise";
 import Connection from "./Connection";
 
-export default class PostgresDatabaseConnection implements Connection {
+export default class PostgresConnection implements Connection {
   connection: any;
 
   constructor() {
@@ -9,11 +9,10 @@ export default class PostgresDatabaseConnection implements Connection {
       "postgres://postgres:duppoe@localhost:5432/hexagonalarq"
     );
   }
-
-  async query(statement: string, params: number[]): Promise<any> {
-    console.log('query####################')
+  query(statement: string, params: any[]): Promise<any> {
     return this.connection.query(statement, params);
   }
+
   close(): Promise<any> {
     return this.connection.$poll.end();
   }

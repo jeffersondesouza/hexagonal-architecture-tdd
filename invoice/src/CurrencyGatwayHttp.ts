@@ -1,4 +1,3 @@
-import axios from "axios";
 import CurrencyGatway from "./CurrencyGatway";
 import HttpClient from "./HttpClient";
 
@@ -15,10 +14,3 @@ export default class CurrencyGatwayHttp implements CurrencyGatway {
     return data;
   }
 }
-
-/* 
-const response = await axios.get(
-  `http://localhost:3001/currency/${month}/${year}`
-  );
-  
-  */
