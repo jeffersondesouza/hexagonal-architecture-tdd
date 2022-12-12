@@ -1,6 +1,6 @@
 # Hexagonal Architecture and TDD
 
-- This Repository uses a Credit Card doamin simulation to put in pratice some principles of Hexagonal Architecture implemented using TDD pratices;
+- This Repository uses a Credit Card domain simulation to put into practice some principles of Hexagonal Architecture implemented using TDD practices;
 
 ## Scope
 
@@ -13,14 +13,21 @@
 # Intial Structure
 
 - There are two services, one responsible for totaling transactions;
-- Another responsable for converting the tranations to a common currency;
+- Another responsible for converting the transitions to a common currency;
 
 # SOLID
 
 ## S - Single Responsability Principle
+- The first version didn't respect this because the main file has to many responsibilities
 
-- The first version didn't respect this because the main file has to many responsabilities
+## O - Open-Closed Principle
+- Due to our small scope, we did not need to extend classes;
+
+## L - Liskov Substitution Principle
+- Due to our small scope, this principle wasn't applied by classes
+
+## I - Interface Segregation Principle:
+- The classes are not implementing interfaces o methods they don't need
 
 ## D - Dependency Injection Principle
-
-- The Currence Invoce class dependencies are abstractions instead of implementations
+- The Currence Invoice class dependencies are abstractions instead of implementations
